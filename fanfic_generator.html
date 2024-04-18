@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  
+<head>
+  
+  <title>Fanfic Generator</title>
+  <meta charset="UTF-8">
+  
+  <style>
+  
+    body{
+      padding-left:15%;
+      padding-right:15%;
+    }
+    
+    div{
+      background-color:lightgray;
+      align-content:center;
+      margin-bottom:10%;
+      padding:0.1%;
+      padding-bottom:1%;
+      text-align:center;
+    }
+    
+    form{
+      margin:auto;
+    }
+    
+    #submit{
+      margin-bottom:10%;
+      height:4.5em;
+      width:40%;
+      margin-left:30%;
+      margin-right:30%;
+      font-weight:bold;
+    }
+    
+    #textbox{
+      font-size:1.5em;
+      background-color:white;
+      border-color:lightgray;
+      border-style:solid;
+      border-width:thick;
+      width:90%;
+      height:90%;
+      text-align:left;
+      margin-left:auto;
+      margin-right:auto;
+      margin-top:2%;
+      margin-bottom:2%;
+      padding:2%;
+    }
+    
+    #label{
+      font-size:1em;
+    }
+    
+  </style>
+  
+  
+</head>
+
+<body>
+  
+  <div><!--title-->
+    
+    <h1>Customizable Fanfic Generator</h1>
+    
+  </div><!--end title-->
+  
+  
+  <div><!--input-->
+  
+    <p id="label">Input two names for the story, it could be from a story, or people you know</p>
+    
+    <form>
+      <label for="name1">First Person:</label>
+      <input type="text" id="name1" name="name1">
+      <label for="name2">Second Person:</label>
+      <input type="text" id="name2" name="name2">
+    </form>
+    
+  </div><!--end input-->
+    
+    <!--generate button-->
+    <button id="submit">
+      Click Here to generate a custom fanfiction!
+    </button>
+  
+  <div id=textbox_wrapper><!--output-->
+    
+    <div id="textbox"><!--text box-->
+      
+      Awesome story will appear here
+      
+    </div><!--end text box-->
+    
+  </div><!--end output-->
+  
+  <script>
+    
+    const villians_list = ["balrogs","homophobes","barn animals","goblins","ghouls","presidents","women","gamers","accountants","bartenders","smelly people","castle owners","snails"];
+    
+    const name1_input = document.getElementById("name1");
+    const name2_input = document.getElementById("name2");
+    const submit = document.getElementById("submit");
+    const textbox = document.getElementById("textbox");
+    
+    submit.addEventListener("click",updateScreen);
+    
+    function updateScreen(){
+      let name1 = name1_input.value;
+      let name2 = name2_input.value;
+      let villian;
+      
+      if(name1==""||name2==""){
+        return;
+      }
+      
+      name1 = name1[0].toUpperCase() + name1.slice(1);
+      name2 = name2[0].toUpperCase() + name2.slice(1);
+      
+      villian = villians_list[Math.floor(Math.random()*villians_list.length)];
+      
+      textbox.innerHTML = name1+" was sitting in his room, and then "+name2+" came in. They started kissing! A bunch of "+villian+" burst in, and are dismayed. They lock the lovers in two distant castles, and  say their love can never be!";
+    }
+    
+  </script>
+  
+  <small>© 2024 Dominic Duncan Inc, all rights reserved.</small>
+  
+</body>
+
+</html>
